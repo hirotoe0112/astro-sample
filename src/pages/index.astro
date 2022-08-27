@@ -1,37 +1,53 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="旅人たちの紡歌 - Index">
 	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			Check out the <code>src/pages</code> directory to get started.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
+		<section>
+			<h2>
+				アバウト
+			</h2>
+			<article>
+				オリジナル小説サイト。<br>
+				傾向：旅するファンタジー／ちょっと不思議な現代もの／なんちゃってホラー風味／シリアス多め／アンハッピーエンド多め
+			</article>
+		</section>
+		<section>
+			<h2>
+				更新履歴
+			</h2>
+			<article>
+				<ul>
+					<li>
+						2017/09/03 「<a href="">ちっこいといっしょ！～夏祭り編～</a>」
+					</li>
+					<li>
+						2016/03/08 <a href="white/top.html">眠りの白に導かれ</a> <a href="white/038t.html">終章「繰り返される物語</a>」完結しました！ありがとうございました！
+					</li>
+					<li>
+						2016/03/07 <a href="white/top.html">眠りの白に導かれ</a> <a href="white/037g.html">8章「眠りの白に導かれ」-02</a>
+					</li>
+				</ul>
+			</article>
+		</section>
+		<section>
+			<h2>
+				作品一覧
+			</h2>
+			<h3>
+				連載中
+			</h3>
 			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
+				title="廻りめぐる季節～還る場所へ～"
+				genre="短編連作／異世界／学園／群像劇"
+				description="リトワール国立学院に通う学生たちの生活を描いた異世界ファンタジー連作。"
+				href="./school"
+				banner="./banner/school.jpg"
 			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Chat"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
+		</section>
 	</main>
 </Layout>
 
@@ -47,50 +63,31 @@ import Card from '../components/Card.astro';
 	main {
 		margin: auto;
 		padding: 1em;
-		max-width: 60ch;
+		max-width: 100ch;
 	}
 
-	.text-gradient {
-		font-weight: 900;
-		background-image: var(--astro-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 100% 200%;
-		background-position-y: 100%;
-		border-radius: 0.4rem;
-		animation: pulse 4s ease-in-out infinite;
+	h2 {
+		margin: 9px 0;
+		padding: 2px 8px;
+		color: #fff;
+		background-color: #666;
+		font-weight: bold;
+		letter-spacing: 2px;
 	}
 
-	@keyframes pulse {
-		0%,
-		100% {
-			background-position-y: 0%;
-		}
-		50% {
-			background-position-y: 80%;
-		}
+	h3 {
+		border-left: 3px double;
+		padding-left: 10px;
+		margin-bottom: 8px;
 	}
 
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		background: #4f39fa;
-		padding: 1rem;
-		border-radius: 0.4rem;
-		color: var(--color-bg);
+	article {
+		padding: 2px 15px;
 	}
 
-	.instructions code {
-		font-size: 0.875em;
-		border: 0.1em solid var(--color-border);
-		border-radius: 4px;
-		padding: 0.15em 0.25em;
-	}
-
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
+	ul {
+		margin: 0;
+		padding-left: 0;
+		list-style: none;
 	}
 </style>

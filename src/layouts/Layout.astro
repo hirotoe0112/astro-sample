@@ -4,10 +4,12 @@ export interface Props {
 }
 
 const { title } = Astro.props;
+const date = new Date
+const currentYear = date.getFullYear()
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -16,22 +18,28 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		<header>
+			<span class="site-title"><a href="./">旅人たちの紡歌</a></span>
+		</header>
 		<slot />
+		<footer>
+			Copyright(C)2007-{currentYear} Yoka All rights reserved.
+		</footer>
 	</body>
 </html>
 <style>
 	:root {
-		--font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
-		--font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
-		--font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
+		--font-size-base: clamp(0.9rem, 0.34vw + 0.5rem, 0.9rem);
+		--font-size-lg: clamp(1.0rem, 0.7vw + 0.5rem, 1.0rem);
+		--font-size-xl: clamp(2rem, 2.38vw + 1.85rem, 2rem);
 
 		--color-text: hsl(12, 5%, 4%);
+		--color-hover: hsl(12, 5%, 60%);
 		--color-bg: hsl(10, 21%, 95%);
 		--color-border: hsl(17, 24%, 90%);
 	}
 
 	html {
-		font-family: system-ui, sans-serif;
 		font-size: var(--font-size-base);
 		color: var(--color-text);
 		background-color: var(--color-bg);
@@ -49,8 +57,40 @@ const { title } = Astro.props;
 		font-size: var(--font-size-lg);
 	}
 
+	:global(h3) {
+		font-size: var(--font-size-lg);
+	}
+
 	:global(code) {
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
 			Bitstream Vera Sans Mono, Courier New, monospace;
+	}
+
+	:global(a) {
+		text-decoration: underline;
+		color: var(--color-text);
+	}
+
+	:global(a:hover) {
+		color: var(--color-hover);
+	}
+
+	:global(header) {
+		padding: 10px 10px;
+		box-shadow: 0 1px 10px 0 var(--color-hover);
+	}
+
+	:global(header a){
+		text-decoration: none;
+	}
+
+	:global(.site-title) {
+		font-family: serif;
+		font-size: var(--font-size-xl);
+		font-weight: lighter;
+	}
+
+	:global(footer) {
+		text-align: center;
 	}
 </style>
