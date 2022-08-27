@@ -19,7 +19,9 @@ const currentYear = date.getFullYear()
 	</head>
 	<body>
 		<header>
-			<span class="site-title"><a href="./">旅人たちの紡歌</a></span>
+			<div class="title-area">
+				<span class="site-title"><a href="./">旅人たちの紡歌</a></span>
+			</div>
 		</header>
 		<slot />
 		<footer>
@@ -82,6 +84,11 @@ const currentYear = date.getFullYear()
 
 	:global(header a){
 		text-decoration: none;
+	}
+
+	:global(.title-area) {
+		max-width: 100ch;
+		margin: 0 auto;
 	}
 
 	:global(.site-title) {
