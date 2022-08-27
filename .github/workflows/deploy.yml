@@ -1,4 +1,4 @@
-name: Production Deploy
+name: Deploy website on push
 on:
   push:
     branches: [master]
@@ -6,16 +6,28 @@ on:
 
 jobs:
   deploy:
-    name: FTP deploy action
+    name: Deploy
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Get latest code
+        uses: actions/checkout@v2
+        
+      - name: Use Node.js 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          
+      - name: Build Project
+        run: |
+          npm install
+          npm run build
+          
       - name: Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.2.0
+        uses: SamKirkland/FTP-Deploy-Action@4.3.1
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./
+          local-dir: ./dist/
           server-dir: ${{ secrets.FTP_SERVER_DIR }}
