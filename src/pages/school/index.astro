@@ -1,0 +1,115 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+---
+
+<Layout title="廻りめぐる季節～還る場所へ～ - Index">
+	<main>
+		<div class="novel-image">
+			<img src="../cut/school.jpg">
+		</div>
+		<section>
+			<h2>
+				廻りめぐる季節～還る場所へ～
+			</h2>
+			<article>
+				平穏にみえる日常は少しずついびつな形に姿を変え、望まぬ未来へと収束する。<br>
+				放たれた運命は移り変わる季節に流されて、確実に終わりのその日へと近づいていた――。<br>
+				世界各国から精鋭が集う国立芸術学校、リトワール国立学院に通う学生たちの生活を描いた小品集。
+			</article>
+		</section>
+		<section>
+			<h3>
+				本編目次
+			</h3>
+			<article>
+				<!--準備中 -->
+			</article>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	:root {
+		--astro-gradient: linear-gradient(0deg, #4f39fa, #da62c4);
+	}
+
+	main {
+		margin: auto;
+		padding: 1em;
+		max-width: 100ch;
+	}
+
+	.novel-image{
+		margin: auto;
+		width: 100%;
+	}
+
+	.novel-image img {
+		width: 100%;
+		height: auto;
+	}
+
+	h2 {
+		margin: 9px 0 0;
+		padding: 2px 8px;
+		color: #fff;
+		background-color: #666;
+		font-weight: bold;
+		letter-spacing: 2px;
+	}
+
+	h3 {
+		border-left: 3px double;
+		padding-left: 10px;
+		margin-bottom: 8px;
+	}
+
+	article {
+		padding: 2px 15px;
+	}
+
+	.text-gradient {
+		font-weight: 900;
+		background-image: var(--astro-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 100% 200%;
+		background-position-y: 100%;
+		border-radius: 0.4rem;
+		animation: pulse 4s ease-in-out infinite;
+	}
+
+	@keyframes pulse {
+		0%,
+		100% {
+			background-position-y: 0%;
+		}
+		50% {
+			background-position-y: 80%;
+		}
+	}
+
+	.instructions {
+		line-height: 1.6;
+		margin: 1rem 0;
+		background: #4f39fa;
+		padding: 1rem;
+		border-radius: 0.4rem;
+		color: var(--color-bg);
+	}
+
+	.instructions code {
+		font-size: 0.875em;
+		border: 0.1em solid var(--color-border);
+		border-radius: 4px;
+		padding: 0.15em 0.25em;
+	}
+
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1rem;
+		padding: 0;
+	}
+</style>
