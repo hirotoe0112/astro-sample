@@ -30,4 +30,4 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
-          server-dir: /greenry.jp/public_html/novel.greenry.jp/
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
