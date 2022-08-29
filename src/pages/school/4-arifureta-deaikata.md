@@ -3,8 +3,8 @@ layout: ../../layouts/NovelBaseLayout.astro
 series: school
 title: ありふれた出会い方
 description: 
-back: "4-arifureta-deaikata"
-next: 
+back: "3-yume-no-fuchi-de"
+next: "5-susumu-beki-michi"
 ---
 
 「じゃあ、また明日」
