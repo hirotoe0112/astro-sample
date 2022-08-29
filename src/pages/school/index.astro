@@ -1,9 +1,10 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import ImageCut from "../../components/NovelImageCut.astro";
+import Layout from "../../layouts/Layout.astro"
+import ImageCut from "../../components/NovelImageCut.astro"
+import SchoolCard from "../../components/SchoolCard.astro"
 
-const title = "廻りめぐる季節～還る場所へ～";
-const tabTitle = title + " - Top";
+const title = "廻りめぐる季節～還る場所へ～"
+const tabTitle = title + " - Top"
 ---
 
 <Layout title={tabTitle}>
@@ -17,6 +18,11 @@ const tabTitle = title + " - Top";
     世界各国から精鋭が集う国立芸術学校、リトワール国立学院に通う学生たちの生活を描いた群像劇。
   </p>
   <h3>本編目次</h3>
+  <SchoolCard title="序・終わりの始まり" description="10枚／2年目春／入学式にて" href="./1-owari-no-hajimari" />
+  <SchoolCard title="水晶は嵐とともに" description="5枚／1年目春／アリッサとエリンの出会い" href="2-suisyo-wa-arasi-to-tomoni" />
+  <SchoolCard title="夢の淵で" description="5枚／1年目春／少女が見た夢は" href="3-yume-no-fuchi-de" />
+  <SchoolCard title="ありふれた出会い方" description="9枚／1年目春／二人がぶつかった男は……" href="4-arifureta-deaikata" />
+  <SchoolCard title="進むべき道" description="10枚／1年目春／エリンの孤独" href="5-susumu-beki-michi" />
 </Layout>
 
 <style>

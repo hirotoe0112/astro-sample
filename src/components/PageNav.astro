@@ -1,16 +1,16 @@
 ---
 export interface Props {
-  back: string;
-  next: string;
+  back: string
+  next: string
 }
 
-const { back, next } = Astro.props;
+const { back, next } = Astro.props
 
-const backLink: string = "../" + back;
-const nextLink: string = "../" + next;
+const backLink: string = "../" + back
+const nextLink: string = "../" + next
 
-const backText: string = "ＢＡＣＫ";
-const nextText: string = "ＮＥＸＴ";
+const backText: string = "ＢＡＣＫ"
+const nextText: string = "ＮＥＸＴ"
 ---
 
 <div class="page-nav">
