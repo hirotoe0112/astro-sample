@@ -1,9 +1,10 @@
 ---
+//サイト全体用レイアウトページ
 export interface Props {
-	title: string;
+	title: string
 }
 
-const { title } = Astro.props;
+const { title } = Astro.props
 const date = new Date
 const currentYear = date.getFullYear()
 ---
@@ -20,15 +21,18 @@ const currentYear = date.getFullYear()
 	<body>
 		<header>
 			<div class="title-area">
-				<span class="site-title"><a href="./">旅人たちの紡歌</a></span>
+				<span class="site-title"><a href="/">旅人たちの紡歌</a></span>
 			</div>
 		</header>
-		<slot />
+    <main>
+      <slot />
+    </main>
 		<footer>
 			Copyright(C)2007-{currentYear} Yoka All rights reserved.
 		</footer>
 	</body>
 </html>
+
 <style>
 	:root {
 		--font-size-base: clamp(0.9rem, 0.34vw + 0.5rem, 0.9rem);
@@ -49,6 +53,12 @@ const currentYear = date.getFullYear()
 
 	body {
 		margin: 0;
+	}
+
+	:global(main) {
+		margin: auto;
+		padding: 1em;
+		max-width: 90ch;
 	}
 
 	:global(h1) {
@@ -87,7 +97,7 @@ const currentYear = date.getFullYear()
 	}
 
 	:global(.title-area) {
-		max-width: 100ch;
+		max-width: 90ch;
 		margin: 0 auto;
 	}
 
@@ -98,6 +108,9 @@ const currentYear = date.getFullYear()
 	}
 
 	:global(footer) {
+		margin-top: 20px;
+		padding: 10px 0;
+		border-top: 1px solid var(--color-border);
 		text-align: center;
 	}
 </style>

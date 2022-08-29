@@ -1,0 +1,65 @@
+---
+//小説本文用レイアウトページ
+import Layout from "./Layout.astro";
+import ReturnTop from "../components/ReturnTop.astro";
+import PageNav from "../components/PageNav.astro";
+
+const { frontmatter } = Astro.props;
+const series = frontmatter.series;
+const title = frontmatter.title;
+const back = frontmatter.back;
+const next = frontmatter.next;
+---
+
+<Layout title={title}>
+  <h2>
+    {title}
+  </h2>
+  <div class="novel-nav">
+    <ReturnTop series={series} title={title} />
+    <PageNav back={back} next={next} />
+  </div>
+  <hr />
+  <div class="novel-content">
+    <slot />
+  </div>
+  <hr />
+  <div class="novel-nav">
+    <PageNav back={back} next={next} />
+    <ReturnTop series={series} title={title}/>
+  </div>
+</Layout>
+
+<style>
+  h2 {
+    margin: 9px 0 0;
+    padding: 2px 8px;
+    color: #fff;
+    background-color: #666;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+
+  hr {
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+    background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+    background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+    background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  }
+
+  .novel-nav {
+    text-align: right;
+    margin: 5px 0;
+  }
+
+  .return-top {
+    margin: 2px 0;
+  }
+
+  .novel-content {
+    margin: 30px 0;
+    line-height: 180%;
+  }
+</style>

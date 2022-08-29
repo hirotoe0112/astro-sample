@@ -1,69 +1,68 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
-
+//トップページ
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import ShortStories from "../components/ShortStories.astro";
 ---
 
 <Layout title="旅人たちの紡歌 - Index">
-	<main>
-		<section>
-			<h2>
-				アバウト
-			</h2>
-			<article>
-				オリジナル小説サイト。<br>
-				傾向：旅するファンタジー／ちょっと不思議な現代もの／なんちゃってホラー風味／シリアス多め／アンハッピーエンド多め
-			</article>
-		</section>
-		<section>
-			<h2>
-				更新履歴
-			</h2>
-			<article>
-				<ul>
-					<li>
-						2017/09/03 「<a href="">ちっこいといっしょ！～夏祭り編～</a>」
-					</li>
-					<li>
-						2016/03/08 <a href="white/top.html">眠りの白に導かれ</a> <a href="white/038t.html">終章「繰り返される物語</a>」完結しました！ありがとうございました！
-					</li>
-					<li>
-						2016/03/07 <a href="white/top.html">眠りの白に導かれ</a> <a href="white/037g.html">8章「眠りの白に導かれ」-02</a>
-					</li>
-				</ul>
-			</article>
-		</section>
-		<section>
-			<h2>
-				作品一覧
-			</h2>
-			<h3>
-				連載中
-			</h3>
-			<Card
-				title="廻りめぐる季節～還る場所へ～"
-				genre="短編連作／異世界／学園／群像劇"
-				description="リトワール国立学院に通う学生たちの生活を描いた異世界ファンタジー連作。"
-				href="./school"
-				banner="./banner/school.jpg"
-			/>
-		</section>
-	</main>
+	<section>
+		<h2>アバウト</h2>
+		<article>
+			オリジナル小説サイト。<br />
+			傾向：旅するファンタジー／ちょっと不思議な現代もの／なんちゃってホラー風味／シリアス多め／アンハッピーエンド多め
+		</article>
+	</section>
+	<section>
+		<h2>更新履歴</h2>
+		<article>
+			<ul>
+				<li>
+					2022/08/29 ホームページリニューアルしました
+				</li>
+			</ul>
+		</article>
+	</section>
+	<section>
+		<h2>作品一覧</h2>
+		<h3>連載中</h3>
+		<Card
+			title="廻りめぐる季節～還る場所へ～"
+			genre="短編連作／異世界FT／学園／群像劇"
+			description="リトワール国立学院に通う学生たちの生活を描いた異世界ファンタジー連作。"
+			href="/school"
+			banner="/banner/school.jpg"
+		/>
+		<h3>完結</h3>
+		<Card
+			title="眠りの白に導かれ"
+			genre="372枚／異世界FT／シリアス／運命／主従／かっこいい幼女"
+			description="これは、繰り返される物語である。"
+			href="/white"
+			banner="/banner/white.gif"
+		/>
+		<Card
+			title="空の揺動"
+			genre="61枚／悲恋／少し前の日本"
+			description="アザーズプロット２参加作品。"
+			href="/sky"
+			banner="/banner/sky.jpg"
+		/>
+		<Card
+			title="時の欠片"
+			genre="60枚／現代／探偵のまねごと／大学生"
+			description="トンネルの向こうには、錆びついた町があった。オンライン文化祭2013参加作品。"
+			href="/times"
+			banner="/banner/times.jpg"
+		/>
+		<h3>短編</h3>
+		<ShortStories />
+	</section>
 </Layout>
 
 <style>
-	:root {
-		--astro-gradient: linear-gradient(0deg, #4f39fa, #da62c4);
-	}
-
-	h1 {
-		margin: 2rem 0;
-	}
-
-	main {
-		margin: auto;
-		padding: 1em;
-		max-width: 100ch;
+	section {
+		margin-bottom: 25px;
 	}
 
 	h2 {
