@@ -1,14 +1,14 @@
 ---
 //小説本文用レイアウトページ
-import Layout from "./Layout.astro";
-import ReturnTop from "../components/ReturnTop.astro";
-import PageNav from "../components/PageNav.astro";
+import Layout from "./Layout.astro"
+import ReturnTop from "../components/ReturnTop.astro"
+import PageNav from "../components/PageNav.astro"
 
-const { frontmatter } = Astro.props;
-const series = frontmatter.series;
-const title = frontmatter.title;
-const back = frontmatter.back;
-const next = frontmatter.next;
+const { frontmatter } = Astro.props
+const series = frontmatter.series
+const title = frontmatter.title
+const back = frontmatter.back
+const next = frontmatter.next
 ---
 
 <Layout title={title}>

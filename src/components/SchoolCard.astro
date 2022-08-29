@@ -1,0 +1,23 @@
+---
+export interface Props {
+  title: string
+  description: string
+  href: string
+}
+
+const { title, description, href } = Astro.props
+---
+
+<div class="school-title">
+  <a href={href}>{title}</a>
+</div>
+<div>
+  {description}
+</div>
+
+<style>
+  .school-title {
+    font-weight: bold;
+    margin-top: 20px;
+  }
+</style>
