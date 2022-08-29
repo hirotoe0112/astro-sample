@@ -3,8 +3,8 @@ layout: ../../layouts/NovelBaseLayout.astro
 series: school
 title: 進むべき道
 description: 
-back: "3-yume-no-fuchi-de"
-next: "5-susumu-beki-michi"
+back: "4-arifureta-deaikata"
+next: 
 ---
 
 「ちょっとちょっとちょっとエリン、君ー！」
