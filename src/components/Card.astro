@@ -1,45 +1,45 @@
 ---
 export interface Props {
-	title: string
-	genre: string
-	description: string
-	href: string
-	banner: string
+  title: string;
+  genre: string;
+  description: string;
+  href: string;
+  banner: string;
 }
 
-const { title, genre, description, href, banner } = Astro.props
+const { title, genre, description, href, banner } = Astro.props;
 ---
 
 <div class="novel-card">
-	<div>
-		<a href={href}>
-			<img src={banner}>
-		</a>
-	</div>
-	<div class="novel-title">
-		<a href={href}>
-			{title}
-		</a>
-	</div>
-	<div>
-		{genre}
-	</div>
-	<div>
-		{description}
-	</div>
+  <div>
+    <a href={href}>
+      <img src={banner} />
+    </a>
+  </div>
+  <div class="novel-title">
+    <a href={href}>
+      {title}
+    </a>
+  </div>
+  <div>
+    {genre}
+  </div>
+  <div>
+    {description}
+  </div>
 </div>
 
 <style>
-	.novel-card {
-		padding: 0.3rem;
-		max-width: 100ch;
-		margin: 0 auto;
-		margin-bottom: 20px;
-	}
+  .novel-card {
+    padding: 0.3rem;
+    max-width: 100ch;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
 
-	.novel-title {
-		margin: 0;
-		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-		font-weight: bold;
-	}
+  .novel-title {
+    margin: 0;
+    transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    font-weight: bold;
+  }
 </style>

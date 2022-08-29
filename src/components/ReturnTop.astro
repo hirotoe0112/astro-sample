@@ -1,24 +1,26 @@
 ---
 export interface Props {
-	series: string
-	title: string
+  series: string;
+  title: string;
 }
 
 const { series, title } = Astro.props;
 ---
 
-{ series !== null ?
-<div class="return-top">
-	<a href="./">作品トップへ戻る</a>
-</div>
-:
-<div class="return-top">
-	<a href="/">Index</a>&nbsp;＞&nbsp;{title}
-</div>
+{
+  series !== null ? (
+    <div class="return-top">
+      <a href="./">作品トップへ戻る</a>
+    </div>
+  ) : (
+    <div class="return-top">
+      <a href="/">Index</a>&nbsp;＞&nbsp;{title}
+    </div>
+  )
 }
 
 <style>
-	.page-nav {
-		margin: 3px 0;
-	}
+  .page-nav {
+    margin: 3px 0;
+  }
 </style>
