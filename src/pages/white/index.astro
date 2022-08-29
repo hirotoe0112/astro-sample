@@ -1,0 +1,37 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ImageCut from "../../components/NovelImageCut.astro";
+
+const title = "眠りの白に導かれ";
+const tabTitle = title + " - Top";
+---
+
+<Layout title={tabTitle}>
+  <ImageCut src="../cut/white.jpg" />
+  <h2>{title}</h2>
+  <p>
+    唯一の肉親であった兄を戦争によって亡くした少女エルセは、幼なじみのターキィのもとへ身を寄せる。<br>
+    しかし、平穏だと思われた日常は徐々に姿を変えていく。ある日、エルセはまるで何かに導かれるように、兄の命を奪った敵国トロイラへ向かうことになる。
+  </p>
+  <p>
+    そこで待ち受けていたのは、遠い昔から眠り続けてきた、一つの意思だった――。
+  </p>
+  <h3>本編目次</h3>
+</Layout>
+
+<style>
+  h2 {
+    margin: 9px 0 0;
+    padding: 2px 8px;
+    color: #fff;
+    background-color: #666;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+
+  h3 {
+    border-left: 3px double;
+    padding-left: 10px;
+    margin-bottom: 8px;
+  }
+</style>

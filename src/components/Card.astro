@@ -1,13 +1,13 @@
 ---
 export interface Props {
-	title: string;
-	genre: string;
-	description: string;
-	href: string;
-	banner: string;
+	title: string
+	genre: string
+	description: string
+	href: string
+	banner: string
 }
 
-const { title, genre, description, href, banner } = Astro.props;
+const { title, genre, description, href, banner } = Astro.props
 ---
 
 <div class="novel-card">
@@ -28,11 +28,13 @@ const { title, genre, description, href, banner } = Astro.props;
 		{description}
 	</div>
 </div>
+
 <style>
 	.novel-card {
 		padding: 0.3rem;
 		max-width: 100ch;
 		margin: 0 auto;
+		margin-bottom: 20px;
 	}
 
 	.novel-title {

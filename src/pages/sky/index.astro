@@ -1,0 +1,41 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ImageCut from "../../components/NovelImageCut.astro";
+
+const title="空の揺動"
+const tabTitle = title + " - Top"
+---
+
+<Layout title={tabTitle}>
+	<ImageCut src="../cut/sky.jpg" />
+	<h2>{title}</h2>
+	<p>
+		不遇の事故により津川家に居候している村井正己は、ある日、主人に縁談が持ち上がっていることを知る。<br>
+		相手の女性は洋服を着こなす、色白で綺麗な女性だった。
+	</p>
+	<h3>本編目次</h3>
+	<a href="./00">序章</a>
+	／<a href="./01">０１</a>
+	／<a href="./02">０２</a>
+	／<a href="./03">０３</a>
+	／<a href="./04">０４</a>
+	／<a href="./05">終章</a>
+	（完）
+</Layout>
+
+<style>
+	h2 {
+		margin: 9px 0 0;
+		padding: 2px 8px;
+		color: #fff;
+		background-color: #666;
+		font-weight: bold;
+		letter-spacing: 2px;
+	}
+
+	h3 {
+		border-left: 3px double;
+		padding-left: 10px;
+		margin-bottom: 8px;
+	}
+</style>

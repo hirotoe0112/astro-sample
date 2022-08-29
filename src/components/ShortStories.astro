@@ -1,0 +1,27 @@
+---
+//短編一覧
+const stories = await Astro.glob("../pages/short/*.md");
+---
+
+{
+	stories.map((story) => (
+		<div class="novel-card">
+			<div class="novel-title"><a href={story.url}>{story.frontmatter.title}</a></div>
+			<div class="novel-description">{story.frontmatter.description}</div>
+		</div>
+	))
+}
+
+<style>
+	.novel-card {
+		padding: 0.3rem;
+		max-width: 100ch;
+		margin: 0 auto;
+	}
+
+	.novel-title {
+		margin: 0;
+		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+		font-weight: bold;
+	}
+</style>
