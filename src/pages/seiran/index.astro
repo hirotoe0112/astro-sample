@@ -1,0 +1,67 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import ImageCut from "../../components/NovelImageCut.astro"
+
+const title = "晴嵐の少年少女！"
+const tabTitle = title + " - Top"
+---
+
+<Layout title={tabTitle}>
+  <ImageCut src="../cut/seiran.jpg" />
+  <h2>{title}</h2>
+  <p>
+    大人と子供が分断された世界――。<br>
+    子供の世界は百四の区に分けられ、それぞれの区は地区総代とその右腕が統治する。<br>
+    子供たちは十歳になると連れてこられて、三十歳までを暮らす、そんな世界。
+  </p>
+  <p>
+    雲雀町の地区総代を目指す航、読書好きで優等生の朝霧、どこか冷めている成葉。<br>
+    大人の世界からやってくる悪い大人。<br>
+    そして、各地区を統治する地区総代たち――。
+  </p>
+  <p>
+    彼らによって繰り広げられる、「晴嵐」をめぐるの物語。
+  </p>
+  <h3>第1部　晴嵐の盟約編</h3>
+  <h4>第1章</h4>
+  <a href="./1/1-1">01</a>
+  &nbsp;
+  <a href="./1/1-2">02</a>
+  &nbsp;
+  <a href="./1/1-3">03</a>
+  &nbsp;
+  <a href="./1/1-4">04</a>
+  &nbsp;
+  <a href="./1/1-5">05</a>
+  &nbsp;
+  <a href="./1/1-6">06</a>
+  &nbsp;
+  <a href="./1/1-7">07</a>
+  &nbsp;
+  <a href="./1/1-8">08</a>
+  &nbsp;
+  <a href="./1/1-9">09</a>
+  &nbsp;
+</Layout>
+
+<style>
+  h2 {
+    margin: 9px 0 0;
+    padding: 2px 8px;
+    color: #fff;
+    background-color: #666;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+
+  h3 {
+    border-left: 3px double;
+    padding-left: 10px;
+    margin-bottom: 8px;
+  }
+
+  h4 {
+    margin-top: 20px;
+    border-bottom: 1px dotted #000;
+  }
+</style>
