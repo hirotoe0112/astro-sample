@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  astro-sample:
+    container_name: astro-sample
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    volumes:
+      - .:/usr/src
+    tty: true
+    ports:
+      - 4321:4321
+      - 3000:3000
