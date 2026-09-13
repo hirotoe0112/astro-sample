@@ -2,15 +2,17 @@
 export interface Props {
   series: string
   title: string
+  top: string | undefined
 }
 
 const { series, title, top } = Astro.props
+const pathToTop = top ? top : "../"
 ---
 
 {
   series !== null ? (
     <div class="return-top">
-      {top !== null ? <a href={top}>作品ＴＯＰ</a> : <a href="../">作品ＴＯＰ</a>}
+      {<a href={pathToTop}>作品ＴＯＰ</a>}
     </div>
   ) : (
     <div class="return-top">
