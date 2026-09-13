@@ -4,13 +4,13 @@ export interface Props {
   title: string
 }
 
-const { series, title } = Astro.props
+const { series, title, top } = Astro.props
 ---
 
 {
   series !== null ? (
     <div class="return-top">
-      <a href="../">作品ＴＯＰ</a>
+      {top !== null ? <a href={top}>作品ＴＯＰ</a> : <a href="../">作品ＴＯＰ</a>}
     </div>
   ) : (
     <div class="return-top">
