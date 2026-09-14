@@ -3,8 +3,6 @@ layout: ../../layouts/NovelBaseLayout.astro
 series: 
 title: メール合戦
 description: 3枚／他愛無いメールのやりとり。
-back: 
-next: 
 ---
 
 　風呂上がりのほっと息をつくひととき。携帯を取ってベッドに腰掛ける。今日も一日の成果をあいつに送り付ける。すぐに返事がくる。

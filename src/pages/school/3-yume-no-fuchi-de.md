@@ -3,8 +3,6 @@ layout: ../../layouts/NovelBaseLayout.astro
 series: school
 title: 夢の淵で
 description: 
-back: "2-suisyo-wa-arasi-to-tomoni"
-next: "4-arifureta-deaikata"
 ---
 
 　足元が、揺れている。

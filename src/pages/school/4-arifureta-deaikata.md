@@ -3,8 +3,6 @@ layout: ../../layouts/NovelBaseLayout.astro
 series: school
 title: ありふれた出会い方
 description: 
-back: "3-yume-no-fuchi-de"
-next: "5-susumu-beki-michi"
 ---
 
 「ちょっとちょっとちょっとエリン、君ー！」

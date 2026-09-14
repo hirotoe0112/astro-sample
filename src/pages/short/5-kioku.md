@@ -3,8 +3,6 @@ layout: ../../layouts/NovelBaseLayout.astro
 series: 
 title: 記憶
 description: 12枚／覆面作家企画６参加作品。
-back: 
-next: 
 ---
 
 　昔から時折見る夢がある。

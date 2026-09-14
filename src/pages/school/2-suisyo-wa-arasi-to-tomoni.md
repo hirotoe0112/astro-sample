@@ -3,8 +3,6 @@ layout: ../../layouts/NovelBaseLayout.astro
 series: school
 title: 水晶は嵐とともに
 description: 
-back: "1-owari-no-hajimari"
-next: "3-yume-no-fuchi-de"
 ---
 
 「グロリアってどこにあるの？」

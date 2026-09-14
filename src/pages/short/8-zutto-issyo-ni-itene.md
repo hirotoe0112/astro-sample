@@ -3,8 +3,6 @@ layout: ../../layouts/NovelBaseLayout.astro
 series: 
 title: ずっと一緒でいてね
 description: 18枚／わたしと真紀は、ずっと一緒だった。覆面作家企画７参加作品。
-back: 
-next: 
 ---
 
 　ねえ、真紀。

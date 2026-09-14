@@ -3,8 +3,6 @@ layout: ../../layouts/NovelBaseLayout.astro
 series: school
 title: 序・終わりの始まり
 description: 
-back: 
-next: "2-suisyo-wa-arasi-to-tomoni"
 ---
 
 　ほんのりと暖かい、だけど冷たさのまだ残る空気の中を桃色の花弁が舞い落ちる。地面に敷き詰められた花弁の絨毯は、既に無数の靴に踏まれて茶色に変色していた。真新しい制服に黄色のスカーフをつけた新入生が、続々と校舎の扉へ吸い込まれていく。

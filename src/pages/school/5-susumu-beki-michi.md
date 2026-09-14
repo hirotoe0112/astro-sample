@@ -3,8 +3,6 @@ layout: ../../layouts/NovelBaseLayout.astro
 series: school
 title: 進むべき道
 description: 
-back: "4-arifureta-deaikata"
-next: 
 ---
 
 「じゃあ、また明日」

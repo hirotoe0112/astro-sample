@@ -3,8 +3,6 @@ layout: ../../layouts/NovelBaseLayout.astro
 series: 
 title: ちっこいといっしょ！～夏祭り編～
 description: 9枚／すべての「孤独な人」を癒す存在――ちっこい。
-back: 
-next: 
 ---
 
 　一人暮らしも四年目にさしかかった私の家に突如あらわれた謎の生命体。

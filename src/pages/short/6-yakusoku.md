@@ -3,8 +3,6 @@ layout: ../../layouts/NovelBaseLayout.astro
 series: 
 title: 約束
 description: 3枚／彼は決して約束を違いはしない。
-back: 
-next: 
 ---
 
 　彼は決して約束を違いはしない。

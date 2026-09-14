@@ -3,8 +3,6 @@ layout: ../../layouts/NovelBaseLayout.astro
 series: 
 title: あの日の級友たち
 description: 16枚／友達のいない女子高生の話。
-back: 
-next: 
 ---
 
 　惨めだ。
