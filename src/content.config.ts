@@ -10,11 +10,12 @@ const novels = defineCollection({
   schema: z
     .object({
       series: z.string(),
-      //index.astroのh4見出しなど、目次でのグルーピングに使う（省略可）
+      // 目次でのグルーピング
       chapter: z.string().optional(),
-      //back/nextを連結する範囲。省略時はseriesと同じ扱い（全ページ1本の連続した話になる）
+      // back/nextで行き来できる範囲
+      // 省略時は全ページがback/nextで行き来できる
       group: z.string().optional(),
-      //番外編一覧などでの短い表示名（省略時はtitleを使う）
+      // 番外編の表示名
       label: z.string().optional(),
       title: z.string(),
       description: z.string().nullish(),
