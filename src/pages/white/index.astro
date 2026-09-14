@@ -1,9 +1,53 @@
 ---
 import Layout from "../../layouts/Layout.astro"
 import ImageCut from "../../components/NovelImageCut.astro"
+import { getCollection } from "astro:content"
+import type { CollectionEntry } from "astro:content"
 
 const title = "眠りの白に導かれ"
 const tabTitle = title + " - Top"
+
+type Entry = CollectionEntry<"novels">
+
+// 各ページをフォルダ・ファイルの並び順と同じに揃える
+const allEntries = (
+  await getCollection("novels", (e) => e.data.series === "white")
+).sort((a, b) => a.id.localeCompare(b.id, undefined, { numeric: true }))
+
+const pageNumber = (entry: Entry) => entry.id.match(/(\d+)$/)?.[1] ?? ""
+
+const mainEntries = allEntries.filter((e) => !e.id.includes("/extra/"))
+const extraEntries = allEntries.filter((e) => e.id.includes("/extra/"))
+
+// chapterが同じページを1つの章としてまとめる
+const mainChapters: { heading: string; entries: Entry[] }[] = []
+for (const entry of mainEntries) {
+  const heading = entry.data.chapter ?? ""
+  const current = mainChapters[mainChapters.length - 1]
+  if (current?.heading === heading) {
+    current.entries.push(entry)
+  } else {
+    mainChapters.push({ heading, entries: [entry] })
+  }
+}
+
+// 同じgroupのページをまとめて1話にする
+type Episode = { label: string; description?: string | null; entries: Entry[] }
+const extraEpisodeMap = new Map<string, Episode>()
+for (const entry of extraEntries) {
+  const group = entry.data.group ?? entry.id
+  const episode = extraEpisodeMap.get(group)
+  if (episode) {
+    episode.entries.push(entry)
+  } else {
+    extraEpisodeMap.set(group, {
+      label: entry.data.label ?? entry.data.title,
+      description: entry.data.description,
+      entries: [entry],
+    })
+  }
+}
+const extraEpisodes = [...extraEpisodeMap.values()]
 ---
 
 <Layout title={tabTitle}>
@@ -17,99 +61,41 @@ const tabTitle = title + " - Top"
   <p>
     そこで待ち受けていたのは、遠い昔から眠り続けてきた、一つの意思だった――。
   </p>
+
   <h3>本編目次</h3>
-  <h4>序章「月の下で」</h4>
-  <a href="/white/0/01">01</a>
-
-  <h4>１章「始動」</h4>
-  <a href="/white/1/01">01</a>
-  &nbsp;
-  <a href="/white/1/02">02</a>
-
-  <h4>２章「忍び寄る者」</h4>
-  <a href="/white/2/01">01</a>
-  &nbsp;
-  <a href="/white/2/02">02</a>
-  &nbsp;
-  <a href="/white/2/03">03</a>
-
-  <h4>幕間　ディルケス</h4>
-  <a href="/white/2i/01">01</a>
-
-  <h4>３章「夢幻の狭間で」</h4>
-  <a href="/white/3/01">01</a>
-  &nbsp;
-  <a href="/white/3/02">02</a>
-  &nbsp;
-  <a href="/white/3/03">03</a>
-  &nbsp;
-  <a href="/white/3/04">04</a>
-  &nbsp;
-  <a href="/white/3/05">05</a>
-  &nbsp;
-  <a href="/white/3/06">06</a>
-
-  <h4>４章「交差と翻弄」</h4>
-  <a href="/white/4/01">01</a>
-  &nbsp;
-  <a href="/white/4/02">02</a>
-  &nbsp;
-  <a href="/white/4/03">03</a>
-  &nbsp;
-  <a href="/white/4/04">04</a>
-  &nbsp;
-  <a href="/white/4/05">05</a>
-
-  <h4>幕間　ミュゼ</h4>
-  <a href="/white/4i/01">01</a>
-
-  <h4>５章「祈りの向かうその先へ」</h4>
-  <a href="/white/5/01">01</a>
-  &nbsp;
-  <a href="/white/5/02">02</a>
-  &nbsp;
-  <a href="/white/5/03">03</a>
-  &nbsp;
-  <a href="/white/5/04">04</a>
-  &nbsp;
-  <a href="/white/5/05">05</a>
-
-  <h4>６章「追想」</h4>
-  <a href="/white/6/01">01</a>
-  &nbsp;
-  <a href="/white/6/02">02</a>
-  &nbsp;
-  <a href="/white/6/03">03</a>
-
-  <h4>幕間　イアトス</h4>
-  <a href="/white/6i/01">01</a>
-
-  <h4>７章「憧憬の果て」</h4>
-  <a href="/white/7/01">01</a>
-  &nbsp;
-  <a href="/white/7/02">02</a>
-  &nbsp;
-  <a href="/white/7/03">03</a>
-  &nbsp;
-  <a href="/white/7/04">04</a>
-  &nbsp;
-  <a href="/white/7/05">05</a>
-  &nbsp;
-  <a href="/white/7/06">06</a>
-
-  <h4>幕間　リオット</h4>
-  <a href="/white/7i/01">01</a>
-
-  <h4>８章「眠りの白に導かれ」</h4>
-  <a href="/white/8/01">01</a>
-  &nbsp;
-  <a href="/white/8/02">02</a>
-
-  <h4>終章「繰り返される物語」</h4>
-  <a href="/white/9/01">01</a>
+  {
+    mainChapters.map((chapter) => (
+      <Fragment>
+        <h4>{chapter.heading}</h4>
+        <div class="page-links">
+          {chapter.entries.map((entry) => (
+            <a href={`/${entry.id}`}>{pageNumber(entry)}</a>
+          ))}
+        </div>
+      </Fragment>
+    ))
+  }
 
   <h3>番外編</h3>
-  <a href="/white/extra/01">約束</a>／ウェルバーニアとフーリエスの約束
+  {
+    extraEpisodes.map((episode) =>
+      episode.entries.length > 1 ? (
+        <Fragment>
+          <h4>{episode.label}</h4>
+          <div class="page-links">
+            {episode.entries.map((entry) => (
+              <a href={`/${entry.id}`}>{pageNumber(entry)}</a>
+            ))}
+          </div>
+          <p>{episode.description}</p>
+        </Fragment>
+      ) : (
+        <div class="extra-entry">
+          <a href={`/${episode.entries[0].id}`}>{episode.label}</a>／{episode.description}
+        </div>
+      )
+    )
+  }
 </Layout>
 
 <style>
@@ -131,5 +117,15 @@ const tabTitle = title + " - Top"
   h4 {
     margin-top: 20px;
     border-bottom: 1px dotted #000;
+  }
+
+  .page-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 8px;
+  }
+
+  .extra-entry {
+    margin: 4px 0;
   }
 </style>

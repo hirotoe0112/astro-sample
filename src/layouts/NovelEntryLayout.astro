@@ -1,33 +1,32 @@
 ---
-//小説本文用レイアウトページ
-import type { MarkdownInstance } from "astro"
+//Content Collections（src/content/novels）のエントリ用レイアウトページ
+import type { CollectionEntry } from "astro:content"
+import { getCollection, render } from "astro:content"
 import Layout from "./Layout.astro"
 import ReturnTop from "../components/ReturnTop.astro"
 import PageNav from "../components/PageNav.astro"
 
-const { frontmatter, file } = Astro.props
-const series = frontmatter.series
-const title = frontmatter.title
+export interface Props {
+  entry: CollectionEntry<"novels">
+}
 
-// src/pages以下のmdをすべて読み込む
-const allPages = Object.values(
-  import.meta.glob<MarkdownInstance<Record<string, any>>>(
-    "../pages/**/*.md",
-    { eager: true }
-  )
-)
+const { entry } = Astro.props
+const { series, title } = entry.data
+// back/nextで行き来できる範囲
+// 省略時は本編と同じように全ページがback/nextで行き来できる
+const group = entry.data.group ?? series
 
-// 同じseriesのmdをファイル名順に並べ、自分の前後を取り出す
-const siblings = series
-  ? allPages
-      .filter((p) => p.frontmatter.series === series)
-      .sort((a, b) => a.file.localeCompare(b.file, undefined, { numeric: true }))
-  : []
-const index = siblings.findIndex((p) => p.file === file)
+const allEntries = await getCollection("novels")
+const siblings = allEntries
+  .filter((e) => (e.data.group ?? e.data.series) === group)
+  .sort((a, b) => a.id.localeCompare(b.id, undefined, { numeric: true }))
 
-const back = siblings[index - 1]?.url ?? null
-const next = siblings[index + 1]?.url ?? null
-const top = series ? `/${series}/` : null
+const index = siblings.findIndex((e) => e.id === entry.id)
+const back = siblings[index - 1] ? `/${siblings[index - 1].id}` : null
+const next = siblings[index + 1] ? `/${siblings[index + 1].id}` : null
+const top = `/${series}/`
+
+const { Content } = await render(entry)
 ---
 
 <Layout title={title}>
@@ -40,7 +39,7 @@ const top = series ? `/${series}/` : null
   </div>
   <hr />
   <div class="novel-content">
-    <slot />
+    <Content />
   </div>
   <hr />
   <div class="novel-nav">

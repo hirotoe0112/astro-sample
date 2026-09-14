@@ -1,0 +1,18 @@
+---
+//Content Collections（src/content/novels）のエントリをそのままURLにマッピングする
+//（例: id "white/2/01" → /white/2/01）。シリーズが増えてもこのファイルは変更不要
+import { getCollection } from "astro:content"
+import NovelEntryLayout from "../layouts/NovelEntryLayout.astro"
+
+export async function getStaticPaths() {
+  const entries = await getCollection("novels")
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }))
+}
+
+const { entry } = Astro.props
+---
+
+<NovelEntryLayout entry={entry} />
