@@ -17,12 +17,16 @@ const allPages = Object.values(
   )
 )
 
+//番外編（frontmatter.extra: true）はback/nextの自動連結対象から外す
+const isExtra = Boolean(frontmatter.extra)
+
 //同じseriesのmdをファイル名順に並べ、自分の前後を取り出す
-const siblings = series
-  ? allPages
-      .filter((p) => p.frontmatter.series === series)
-      .sort((a, b) => a.file.localeCompare(b.file, undefined, { numeric: true }))
-  : []
+const siblings =
+  series && !isExtra
+    ? allPages
+        .filter((p) => p.frontmatter.series === series && !p.frontmatter.extra)
+        .sort((a, b) => a.file.localeCompare(b.file, undefined, { numeric: true }))
+    : []
 const index = siblings.findIndex((p) => p.file === file)
 
 const back = siblings[index - 1]?.url ?? null
