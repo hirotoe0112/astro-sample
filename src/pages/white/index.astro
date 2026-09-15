@@ -1,53 +1,11 @@
 ---
 import Layout from "../../layouts/Layout.astro"
 import ImageCut from "../../components/NovelImageCut.astro"
-import { getCollection } from "astro:content"
-import type { CollectionEntry } from "astro:content"
+import PageLinks from "../../components/novel/PageLinks.astro"
+import StoryCard from "../../components/novel/StoryCard.astro"
 
 const title = "眠りの白に導かれ"
 const tabTitle = title + " - Top"
-
-type Entry = CollectionEntry<"novels">
-
-// 各ページをフォルダ・ファイルの並び順と同じに揃える
-const allEntries = (
-  await getCollection("novels", (e) => e.data.series === "white")
-).sort((a, b) => a.id.localeCompare(b.id, undefined, { numeric: true }))
-
-const pageNumber = (entry: Entry) => entry.id.match(/(\d+)$/)?.[1] ?? ""
-
-const mainEntries = allEntries.filter((e) => !e.id.includes("/extra/"))
-const extraEntries = allEntries.filter((e) => e.id.includes("/extra/"))
-
-// chapterが同じページを1つの章としてまとめる
-const mainChapters: { heading: string; entries: Entry[] }[] = []
-for (const entry of mainEntries) {
-  const heading = entry.data.chapter ?? ""
-  const current = mainChapters[mainChapters.length - 1]
-  if (current?.heading === heading) {
-    current.entries.push(entry)
-  } else {
-    mainChapters.push({ heading, entries: [entry] })
-  }
-}
-
-// 同じgroupのページをまとめて1話にする
-type Episode = { label: string; description?: string | null; entries: Entry[] }
-const extraEpisodeMap = new Map<string, Episode>()
-for (const entry of extraEntries) {
-  const group = entry.data.group ?? entry.id
-  const episode = extraEpisodeMap.get(group)
-  if (episode) {
-    episode.entries.push(entry)
-  } else {
-    extraEpisodeMap.set(group, {
-      label: entry.data.label ?? entry.data.title,
-      description: entry.data.description,
-      entries: [entry],
-    })
-  }
-}
-const extraEpisodes = [...extraEpisodeMap.values()]
 ---
 
 <Layout title={tabTitle}>
@@ -63,39 +21,27 @@ const extraEpisodes = [...extraEpisodeMap.values()]
   </p>
 
   <h3>本編目次</h3>
-  {
-    mainChapters.map((chapter) => (
-      <Fragment>
-        <h4>{chapter.heading}</h4>
-        <div class="page-links">
-          {chapter.entries.map((entry) => (
-            <a href={`/${entry.id}`}>{pageNumber(entry)}</a>
-          ))}
-        </div>
-      </Fragment>
-    ))
-  }
+  <PageLinks folder="white/main/0" heading="序章「月の下で」" />
+  <PageLinks folder="white/main/1" heading="１章「始動」" />
+  <PageLinks folder="white/main/2" heading="２章「忍び寄る者」" />
+  <PageLinks folder="white/main/2i" heading="幕間　ディルケス" />
+  <PageLinks folder="white/main/3" heading="３章「夢幻の狭間で」" />
+  <PageLinks folder="white/main/4" heading="４章「交差と翻弄」" />
+  <PageLinks folder="white/main/4i" heading="幕間　ミュゼ" />
+  <PageLinks folder="white/main/5" heading="５章「祈りの向かうその先へ」" />
+  <PageLinks folder="white/main/6" heading="６章「追想」" />
+  <PageLinks folder="white/main/6i" heading="幕間　イアトス" />
+  <PageLinks folder="white/main/7" heading="７章「憧憬の果て」" />
+  <PageLinks folder="white/main/7i" heading="幕間　リオット" />
+  <PageLinks folder="white/main/8" heading="８章「眠りの白に導かれ」" />
+  <PageLinks folder="white/main/9" heading="終章「繰り返される物語」" />
 
   <h3>番外編</h3>
-  {
-    extraEpisodes.map((episode) =>
-      episode.entries.length > 1 ? (
-        <Fragment>
-          <h4>{episode.label}</h4>
-          <div class="page-links">
-            {episode.entries.map((entry) => (
-              <a href={`/${entry.id}`}>{pageNumber(entry)}</a>
-            ))}
-          </div>
-          <p>{episode.description}</p>
-        </Fragment>
-      ) : (
-        <div class="extra-entry">
-          <a href={`/${episode.entries[0].id}`}>{episode.label}</a>／{episode.description}
-        </div>
-      )
-    )
-  }
+  <StoryCard
+    page="white/extra/1-tooki-hini-siro-wa-izanau"
+    title="遠き日に、白はいざなう"
+    description="ウェルバーニアとフーリエスの約束"
+  />
 </Layout>
 
 <style>
@@ -112,20 +58,5 @@ const extraEpisodes = [...extraEpisodeMap.values()]
     border-left: 3px double;
     padding-left: 10px;
     margin-bottom: 8px;
-  }
-
-  h4 {
-    margin-top: 20px;
-    border-bottom: 1px dotted #000;
-  }
-
-  .page-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0 8px;
-  }
-
-  .extra-entry {
-    margin: 4px 0;
   }
 </style>

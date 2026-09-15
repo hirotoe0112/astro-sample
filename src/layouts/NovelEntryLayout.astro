@@ -5,21 +5,25 @@ import { getCollection, render } from "astro:content"
 import Layout from "./Layout.astro"
 import ReturnTop from "../components/ReturnTop.astro"
 import PageNav from "../components/PageNav.astro"
+import { compareIds } from "../components/novel/entries"
+import { getSeriesTitle, readingGroupOf } from "../data/series"
 
 export interface Props {
   entry: CollectionEntry<"novels">
 }
 
 const { entry } = Astro.props
-const { series, title } = entry.data
-// back/nextで行き来できる範囲
-// 省略時は本編と同じように全ページがback/nextで行き来できる
-const group = entry.data.group ?? series
+const { series } = entry.data
+const title = `${getSeriesTitle(series)} | ${entry.data.title}`
 
+// back/nextで行き来できる範囲。src/data/series.ts のreadingGroupsで決まる
+const range = readingGroupOf(entry.id)
+
+// 読む順番はフォルダ名・ファイル名の並び順で決まる
 const allEntries = await getCollection("novels")
 const siblings = allEntries
-  .filter((e) => (e.data.group ?? e.data.series) === group)
-  .sort((a, b) => a.id.localeCompare(b.id, undefined, { numeric: true }))
+  .filter((e) => readingGroupOf(e.id) === range)
+  .sort((a, b) => compareIds(a.id, b.id))
 
 const index = siblings.findIndex((e) => e.id === entry.id)
 const back = siblings[index - 1] ? `/${siblings[index - 1].id}` : null

@@ -1,0 +1,39 @@
+---
+/**
+ * h4ヘッダー（Optional）
+ * ページ番号（半角スペース区切り）
+ *
+ * 形式のリンク
+ */
+
+// フォルダの中のページ番号を並べる
+import { entriesOf } from "./entries"
+
+export interface Props {
+  folder: string
+  // 見出しを出さないときは省略する
+  heading?: string
+}
+
+const { folder, heading } = Astro.props
+const entries = await entriesOf(folder)
+const pageNumber = (id: string) => id.match(/(\d+)$/)?.[1] ?? ""
+---
+
+{heading && <h4>{heading}</h4>}
+<div class="page-links">
+  {entries.map((entry) => <a href={`/${entry.id}`}>{pageNumber(entry.id)}</a>)}
+</div>
+
+<style>
+  h4 {
+    margin-top: 20px;
+    border-bottom: 1px dotted #000;
+  }
+
+  .page-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 8px;
+  }
+</style>

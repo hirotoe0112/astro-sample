@@ -7,23 +7,8 @@
         "series": {
           "type": "string"
         },
-        "chapter": {
-          "type": "string"
-        },
-        "group": {
-          "type": "string"
-        },
-        "label": {
-          "type": "string"
-        },
         "title": {
           "type": "string"
-        },
-        "description": {
-          "type": [
-            "string",
-            "null"
-          ]
         },
         "$schema": {
           "type": "string"

@@ -1,0 +1,39 @@
+---
+/**
+ * タイトル（太字）
+ * 説明
+ *
+ * 形式のリンク
+ */
+
+import { entryOf } from "./entries"
+
+export interface Props {
+  page: string
+  title: string
+  description?: string
+}
+
+const { page, title, description } = Astro.props
+const entry = await entryOf(page)
+---
+
+<div class="novel-card">
+  <div class="novel-title">
+    <a href={`/${entry.id}`}>{title}</a>
+  </div>
+  {description && <div class="novel-description">{description}</div>}
+</div>
+
+<style>
+  .novel-card {
+    padding: 0.3rem;
+    max-width: 100ch;
+    margin: 0 auto;
+  }
+
+  .novel-title {
+    margin: 0;
+    font-weight: bold;
+  }
+</style>
