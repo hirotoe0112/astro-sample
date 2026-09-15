@@ -16,7 +16,7 @@ const { entry } = Astro.props
 const { series } = entry.data
 const title = `${getSeriesTitle(series)} | ${entry.data.title}`
 
-// back/nextで行き来できる範囲。src/data/series.ts のreadingGroupsで決まる
+// back/nextで行き来できる範囲
 const range = readingGroupOf(entry.id)
 
 // 読む順番はフォルダ名・ファイル名の並び順で決まる
