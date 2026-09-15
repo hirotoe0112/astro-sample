@@ -12,6 +12,10 @@ export const seriesInfo: Record<
     title: "眠りの白に導かれ",
     readingGroups: ["main"],
   },
+  times: {
+    title: "時の欠片",
+    readingGroups: ["main", "extra/arasi"],
+  },
 }
 
 export const getSeriesTitle = (series: string): string => {

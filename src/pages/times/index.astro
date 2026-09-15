@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro"
 import ImageCut from "../../components/NovelImageCut.astro"
+import PageLinks from "../../components/novel/PageLinks.astro"
 
 const title = "時の欠片"
 const tabTitle = title + " - Top"
@@ -15,12 +16,9 @@ const tabTitle = title + " - Top"
   原稿用紙60枚／完結
   </p>
   <h3>本編目次</h3>
-  <a href="/times/01">０１</a>
-  ／<a href="/times/02">０２</a>
-  ／<a href="/times/03">０３</a>
-  ／<a href="/times/04">０４</a>
-  ／<a href="/times/05">０５</a>
-  （完）
+  <PageLinks folder="times/main" />
+  <h3>番外編</h3>
+  <PageLinks folder="times/extra/arasi" heading="71枚／嵐のあとを追いかけて" />
 </Layout>
 
 <style>
