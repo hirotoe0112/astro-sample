@@ -16,6 +16,10 @@ export const seriesInfo: Record<
     title: "時の欠片",
     readingGroups: ["main", "extra/arasi"],
   },
+  gendai: {
+    title: "未定",
+    readingGroups: ["main"],
+  },
 }
 
 export const getSeriesTitle = (series: string): string => {
