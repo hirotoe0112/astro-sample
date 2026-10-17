@@ -16,6 +16,10 @@ export const seriesInfo: Record<
     title: "時の欠片",
     readingGroups: ["main", "extra/arasi"],
   },
+  sky: {
+    title: "空の揺動",
+    readingGroups: ["main"],
+  },
   gendai: {
     title: "未定",
     readingGroups: ["main"],

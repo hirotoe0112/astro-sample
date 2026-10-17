@@ -13,16 +13,22 @@ export interface Props {
   folder: string
   // 見出しを出さないときは省略する
   heading?: string
+  // リンクの表示：ファイル名の番号（既定）か、frontmatterのtitleか
+  label?: "number" | "title"
 }
 
-const { folder, heading } = Astro.props
+const { folder, heading, label = "number" } = Astro.props
 const entries = await entriesOf(folder)
 const pageNumber = (id: string) => id.match(/(\d+)$/)?.[1] ?? ""
 ---
 
 {heading && <h4>{heading}</h4>}
 <div class="page-links">
-  {entries.map((entry) => <a href={`/${entry.id}`}>{pageNumber(entry.id)}</a>)}
+  {entries.map((entry) => (
+    <a href={`/${entry.id}`}>
+      {label === "title" ? entry.data.title : pageNumber(entry.id)}
+    </a>
+  ))}
 </div>
 
 <style>

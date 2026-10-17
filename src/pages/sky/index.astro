@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro"
 import ImageCut from "../../components/NovelImageCut.astro"
+import PageLinks from "../../components/novel/PageLinks.astro"
 
 const title = "空の揺動"
 const tabTitle = title + " - Top"
@@ -18,13 +19,7 @@ const tabTitle = title + " - Top"
   原稿用紙61枚／完結
   </p>
   <h3>本編目次</h3>
-  <a href="/sky/00">序章</a>
-  ／<a href="/sky/01">０１</a>
-  ／<a href="/sky/02">０２</a>
-  ／<a href="/sky/03">０３</a>
-  ／<a href="/sky/04">０４</a>
-  ／<a href="/sky/05">終章</a>
-  （完）
+  <PageLinks folder="sky/main" label="title" />
 </Layout>
 
 <style>
