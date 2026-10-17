@@ -1,10 +1,9 @@
 ---
-layout: ../../layouts/NovelBaseLayout.astro
 series: school
 title: 夢の淵で
-description: 
 ---
 
+<span></span>
 　足元が、揺れている。
 <br>
 　大海原の不安定な波間に漂う果実のように、ゆらりゆらりと揺れている。

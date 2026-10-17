@@ -16,6 +16,10 @@ export const seriesInfo: Record<
     title: "時の欠片",
     readingGroups: ["main", "extra/arasi"],
   },
+  school: {
+    title: "廻りめぐる季節～還る場所へ～",
+    readingGroups: ["main"],
+  },
   sky: {
     title: "空の揺動",
     readingGroups: ["main"],

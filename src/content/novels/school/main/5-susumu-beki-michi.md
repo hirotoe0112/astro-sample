@@ -1,8 +1,6 @@
 ---
-layout: ../../layouts/NovelBaseLayout.astro
 series: school
 title: 進むべき道
-description: 
 ---
 
 「じゃあ、また明日」

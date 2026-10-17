@@ -1,8 +1,6 @@
 ---
-layout: ../../layouts/NovelBaseLayout.astro
 series: school
 title: 水晶は嵐とともに
-description: 
 ---
 
 「グロリアってどこにあるの？」

@@ -1,7 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro"
 import ImageCut from "../../components/NovelImageCut.astro"
-import SchoolCard from "../../components/SchoolCard.astro"
+import StoryCard from "../../components/novel/StoryCard.astro"
 
 const title = "廻りめぐる季節～還る場所へ～"
 const tabTitle = title + " - Top"
@@ -18,11 +18,11 @@ const tabTitle = title + " - Top"
     世界各国から精鋭が集う国立芸術学校、リトワール国立学院に通う学生たちの生活を描いた群像劇。
   </p>
   <h3>本編目次</h3>
-  <SchoolCard title="序・終わりの始まり" description="10枚／2年目春／入学式にて" href="/school/1-owari-no-hajimari" />
-  <SchoolCard title="水晶は嵐とともに" description="5枚／1年目春／アリッサとエリンの出会い" href="/school/2-suisyo-wa-arasi-to-tomoni" />
-  <SchoolCard title="夢の淵で" description="5枚／1年目春／少女が見た夢は" href="/school/3-yume-no-fuchi-de" />
-  <SchoolCard title="ありふれた出会い方" description="9枚／1年目春／二人がぶつかった男は……" href="/school/4-arifureta-deaikata" />
-  <SchoolCard title="進むべき道" description="10枚／1年目春／エリンの孤独" href="/school/5-susumu-beki-michi" />
+  <StoryCard page="school/main/1-owari-no-hajimari" title="序・終わりの始まり" description="10枚／2年目春／入学式にて" />
+  <StoryCard page="school/main/2-suisyo-wa-arasi-to-tomoni" title="水晶は嵐とともに" description="5枚／1年目春／アリッサとエリンの出会い" />
+  <StoryCard page="school/main/3-yume-no-fuchi-de" title="夢の淵で" description="5枚／1年目春／少女が見た夢は" />
+  <StoryCard page="school/main/4-arifureta-deaikata" title="ありふれた出会い方" description="9枚／1年目春／二人がぶつかった男は……" />
+  <StoryCard page="school/main/5-susumu-beki-michi" title="進むべき道" description="10枚／1年目春／エリンの孤独" />
 </Layout>
 
 <style>

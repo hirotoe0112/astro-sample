@@ -1,8 +1,6 @@
 ---
-layout: ../../layouts/NovelBaseLayout.astro
 series: school
 title: ありふれた出会い方
-description: 
 ---
 
 「ちょっとちょっとちょっとエリン、君ー！」
