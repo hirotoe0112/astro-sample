@@ -28,7 +28,7 @@ export const seriesInfo: Record<
     title: "短編集",
   },
   gendai: {
-    title: "未定",
+    title: "Someone's Stories 365",
   },
 }
 
