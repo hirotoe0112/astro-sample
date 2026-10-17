@@ -24,6 +24,10 @@ export const seriesInfo: Record<
     title: "空の揺動",
     readingGroups: ["main"],
   },
+  // 1話完結なのでreadingGroupsなし（back/nextを出さない）
+  short: {
+    title: "短編集",
+  },
   gendai: {
     title: "未定",
     readingGroups: ["main"],

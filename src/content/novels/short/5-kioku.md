@@ -1,10 +1,9 @@
 ---
-layout: ../../layouts/NovelBaseLayout.astro
-series: 
+series: short
 title: 記憶
-description: 12枚／覆面作家企画６参加作品。
 ---
 
+<span></span>
 　昔から時折見る夢がある。
 <br>
 　田んぼに囲まれた古びた民家の、ひび割れた窓の向こうに、少年が佇んでいる。ちょうど小学校に入学したてぐらいだろうか、幼い顔は蒼白く無表情だ。

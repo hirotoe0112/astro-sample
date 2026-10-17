@@ -1,10 +1,9 @@
 ---
-layout: ../../layouts/NovelBaseLayout.astro
-series: 
+series: short
 title: 無音の光
-description: 2枚／お題「爪」「絵」「階段」
 ---
 
+<span></span>
 　埃で濁った空気の中、急な階段を上がりきる。廊下の突き当たり、古びた扉の向こうが、彼女の仕事場だった。
 <br>
 「……お邪魔します」

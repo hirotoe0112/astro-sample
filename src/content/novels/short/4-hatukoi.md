@@ -1,10 +1,9 @@
 ---
-layout: ../../layouts/NovelBaseLayout.astro
-series: 
+series: short
 title: 初恋
-description: 12枚／放課後の教室で起こった悲劇。
 ---
 
+<span></span>
 　夕暮れが放課後の教室を寂しげな薄闇で包む。私は自席に横向きに腰掛けて、双子の妹である美衣の横顔を見つめていた。
 <br>
 　美衣はさっきからじっと窓の外に視線を固定していて、微動だにしない様子は魂が抜けてしまったかのようだ。

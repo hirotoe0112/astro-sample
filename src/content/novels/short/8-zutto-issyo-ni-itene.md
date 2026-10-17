@@ -1,10 +1,9 @@
 ---
-layout: ../../layouts/NovelBaseLayout.astro
-series: 
+series: short
 title: ずっと一緒でいてね
-description: 18枚／わたしと真紀は、ずっと一緒だった。覆面作家企画７参加作品。
 ---
 
+<span></span>
 　ねえ、真紀。
 <br>
 　真紀とわたしは顔も、声も、髪型も服装も同じで。

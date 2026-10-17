@@ -2,7 +2,6 @@
 // トップページ
 import Layout from "../layouts/Layout.astro"
 import Card from "../components/Card.astro"
-import ShortStories from "../components/ShortStories.astro"
 ---
 
 <Layout title="旅人たちの紡歌 - ＩＮＤＥＸ">
@@ -42,20 +41,6 @@ import ShortStories from "../components/ShortStories.astro"
       href="/school/"
       banner="/banner/school.jpg"
     />
-    <Card
-      title="未定"
-      genre="365のお題／テーマ「現代」"
-      description="現代もので365のお題に挑戦。"
-      href="/gendai/"
-      banner="/banner/gendai.gif"
-    />
-    <Card
-      title="世界で一番近くて遠い"
-      genre="365のお題／テーマ「家」"
-      description="家にまつわる366のお話。"
-      href="/house/"
-      banner="/banner/house.gif"
-    />
     <h3>完結</h3>
     <Card
       title="眠りの白に導かれ"
@@ -79,7 +64,27 @@ import ShortStories from "../components/ShortStories.astro"
       banner="/banner/times.jpg"
     />
     <h3>短編</h3>
-    <ShortStories />
+    <Card
+      title="短編集"
+      genre="掌編～短編／ジャンルごちゃまぜ"
+      description="短めの作品をまとめたもの。"
+      href="/short/"
+      banner="/banner/short.gif"
+    />
+    <Card
+      title="Someone's Stories 365"
+      genre="365のお題／テーマ「現代」"
+      description="現代もので365のお題に挑戦。"
+      href="/gendai/"
+      banner="/banner/gendai.gif"
+    />
+    <Card
+      title="世界で一番近くて遠い366"
+      genre="366のお題／テーマ「家」"
+      description="家にまつわる366のお話。"
+      href="/house/"
+      banner="/banner/house.gif"
+    />
   </section>
   <section>
     <h2>オフライン情報</h2>

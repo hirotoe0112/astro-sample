@@ -1,10 +1,9 @@
 ---
-layout: ../../layouts/NovelBaseLayout.astro
-series: 
+series: short
 title: メール合戦
-description: 3枚／他愛無いメールのやりとり。
 ---
 
+<span></span>
 　風呂上がりのほっと息をつくひととき。携帯を取ってベッドに腰掛ける。今日も一日の成果をあいつに送り付ける。すぐに返事がくる。
 <br>
 『だから、毎日毎日なんなのよ』

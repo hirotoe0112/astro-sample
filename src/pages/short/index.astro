@@ -1,0 +1,43 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import ImageCut from "../../components/NovelImageCut.astro"
+import StoryCard from "../../components/novel/StoryCard.astro"
+
+const title = "短編集"
+const tabTitle = title + " - Top"
+---
+
+<Layout title={tabTitle}>
+  <ImageCut src="/cut/short.jpg" />
+  <h2>{title}</h2>
+  <p>
+    短めのお話を置いています。
+  </p>
+  <h3>目次</h3>
+  <StoryCard page="short/1-anohi-no-kyuyu-tachi" title="あの日の級友たち" description="16枚／友達のいない女子高生の話。" />
+  <StoryCard page="short/2-mail-gassen" title="メール合戦" description="3枚／他愛無いメールのやりとり。" />
+  <StoryCard page="short/3-muon-no-hikari" title="無音の光" description="2枚／お題「爪」「絵」「階段」" />
+  <StoryCard page="short/4-hatukoi" title="初恋" description="12枚／放課後の教室で起こった悲劇。" />
+  <StoryCard page="short/5-kioku" title="記憶" description="12枚／覆面作家企画６参加作品。" />
+  <StoryCard page="short/6-yakusoku" title="約束" description="3枚／彼は決して約束を違いはしない。" />
+  <StoryCard page="short/7-chikkoi-toissyo-natumaturi" title="ちっこいといっしょ！～夏祭り編～" description="9枚／すべての「孤独な人」を癒す存在――ちっこい。" />
+  <StoryCard page="short/8-zutto-issyo-ni-itene" title="ずっと一緒でいてね" description="18枚／わたしと真紀は、ずっと一緒だった。覆面作家企画７参加作品。" />
+  <StoryCard page="short/9-kimi-ga-hurimuku-toki" title="君がふりむくとき" description="15枚／君がふりむいてくれるのを今日も僕は待っている。" />
+</Layout>
+
+<style>
+  h2 {
+    margin: 9px 0 0;
+    padding: 2px 8px;
+    color: #fff;
+    background-color: #666;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+
+  h3 {
+    border-left: 3px double;
+    padding-left: 10px;
+    margin-bottom: 8px;
+  }
+</style>
