@@ -2,7 +2,7 @@
 layout: ../../layouts/NovelBaseLayout.astro
 series: 
 title: 君がふりむくとき
-description: 15枚／君は決してふりむかない。
+description: 15枚／君がふりむいてくれるのを今日も僕は待っている。
 ---
 
 　――ああ、今日はダメだ。
